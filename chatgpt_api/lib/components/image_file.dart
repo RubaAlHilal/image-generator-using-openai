@@ -2,15 +2,15 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 
-class ImageCardGPT extends StatelessWidget {
-  const ImageCardGPT(
+class ImageCardGPTFile extends StatelessWidget {
+  ImageCardGPTFile(
       {super.key,
       required this.title,
       required this.isUser,
       required this.GPTimage});
   final String title;
   final bool isUser;
-  final File GPTimage;
+  final String GPTimage;
 
   @override
   Widget build(BuildContext context) {
@@ -39,12 +39,13 @@ class ImageCardGPT extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              Image.file(
-                GPTimage,
-                width: 300,
-                height: 300,
-                fit: BoxFit.cover,
-              ),
+             
+                Image.network(
+                  GPTimage,
+                  width: 300,
+                  height: 300,
+                  fit: BoxFit.cover,
+                ),
             ],
           ),
         ),
