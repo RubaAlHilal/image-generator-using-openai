@@ -22,9 +22,7 @@ class ApiNetworking {
               {
                 "role": "system",
                 "content":
-                    // "You will be provided with a text prompt that describes the image the user want to generate, and your task is to use this prompt to generate an image that matches the description"
                     "You will be provided with a sentence in English , and your task is to translate it into french."
-                //
               },
               {"role": "user", "content": msg},
             ],
@@ -46,6 +44,7 @@ class ApiNetworking {
     }
   }
 
+  // this method send request to openai to get the generated image response
   // Future<String> getGPTImage({required String msg}) async {
   //   var urlApi = Uri.parse(imageUrl);
   //   try {
@@ -75,6 +74,7 @@ class ApiNetworking {
   //   }
   // }
 
+  // this method send request to get image from openai to get the response, and send the requested image to supabase Stroage
   Future<String> getGPTImageToSave({required String msg}) async {
     var urlApi = Uri.parse(imageUrl);
     try {

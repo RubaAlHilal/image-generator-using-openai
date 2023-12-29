@@ -1,10 +1,12 @@
 import 'package:chatgpt_api_app/screens/getimage_upload.dart';
 import 'package:chatgpt_api_app/supabase/config_supabase.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {
-  ConfigSupabase().initializeSupabase();
-
+  WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: ".env");
+  await ConfigSupabase().getSupabaseInitialize;
   runApp(const MainApp());
 }
 

@@ -1,13 +1,16 @@
-import 'package:flutter/material.dart';
+
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class ConfigSupabase {
-  initializeSupabase() async {
-    WidgetsFlutterBinding.ensureInitialized();
+  get getSupabaseInitialize async {
+    final supabaseInitialize = await Supabase.initialize(
+        url: dotenv.env['url'].toString(),
+        anonKey: dotenv.env['url'].toString());
+  }
 
-    await Supabase.initialize(
-      url: "https://zkidhsvhkjshockssdec.supabase.co",
-      anonKey: "key from supabase",
-    );
+  SupabaseClient get getSupabase {
+    final supabase = Supabase.instance.client;
+    return supabase;
   }
 }

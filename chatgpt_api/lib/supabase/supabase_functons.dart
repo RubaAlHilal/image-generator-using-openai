@@ -1,18 +1,12 @@
 import 'dart:io';
-
-import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:chatgpt_api_app/supabase/config_supabase.dart';
 
 class SupabaseFunc {
   uploudImage({required pathImageLocal}) async {
-    final supabase = Supabase.instance.client;
+    final supa = ConfigSupabase().getSupabase;
 
-    await supabase.storage
+    await supa.storage
         .from("imageFolder")
         .upload("/users/", File(pathImageLocal));
-
-    //
-    // await supabase.storage
-    //     .from("imageFolder")
-    //     .upload("/users/", File(pathImageLocal));
   }
 }
